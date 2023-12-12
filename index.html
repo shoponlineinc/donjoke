@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Update</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: blue;
+      color: white;
+    }
+
+    #loading {
+      display: block;
+    }
+
+    #updateMessage {
+      display: none;
+      background-color: green;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #updateMessage h2 {
+      color: white;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 20px 30px;
+	  border-radius:10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+	
+	button:hover {
+	background-color:grey;
+	}
+
+    #donGif {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div id="preparingWindows">
+    <h2>Preparing Windows</h2>
+    <p>Please don't turn off your computer</p>
+    <img id="loading" src="loading.gif" alt="Loading..." style="width:300px; height:200px;">
+    <button onclick="turnOff()">Turn Off</button>
+    <button onclick="waitForUpdate()">Wait</button>
+  </div>
+
+  <div id="updateMessage">
+    <h2>Windows have been updated!</h2>
+  </div>
+
+  <img id="donGif" src="don.gif" alt="Done!" style="height:100vh;">
+
+  <script>
+    function turnOff() {
+      document.getElementById('preparingWindows').style.display = 'none';
+      document.getElementById('donGif').style.display = 'block';
+    }
+
+    function waitForUpdate() {
+      document.getElementById('preparingWindows').style.display = 'none';
+      document.getElementById('updateMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
